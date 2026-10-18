@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#07090F] text-[#F8FAFC] antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>anvik.studio — Independent Engineering Lab</title>
+  <meta name="description" content="An independent lab for digital experiments, software tools, and technical exploration.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#07090F',
+            cardBg: '#090A0F',
+            borderSlate: '#1E293B',
+            primarySlate: '#F8FAFC',
+            mutedSlate: '#94A3B8',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#07090F] text-[#F8FAFC] font-sans min-h-screen flex flex-col justify-between tracking-tight selection:bg-slate-800 selection:text-white">
+
+  <!-- Background Glow -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-b from-slate-800/15 via-slate-900/10 to-transparent blur-3xl opacity-70"></div>
+  </div>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+
+    <!-- 1. Header / Navigation -->
+    <header class="w-full max-w-5xl mx-auto px-6 py-6 flex items-center justify-between border-b border-[#1E293B]/60">
+      <!-- Left: Logo Lockup -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-1 focus:ring-slate-400 rounded-lg transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" fill="none" class="transition-transform duration-300 group-hover:scale-105">
+          <rect width="120" height="120" rx="30" fill="#090A0F"/>
+          <defs>
+            <linearGradient id="b-header" x1="60" y1="16" x2="22" y2="88" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#94A3B8"/>
+            </linearGradient>
+            <linearGradient id="c-header" x1="60" y1="16" x2="98" y2="88" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#E2E8F0"/>
+              <stop offset="100%" stop-color="#475569"/>
+            </linearGradient>
+          </defs>
+          <path fill="#334155" d="M60 16 44 80l16-12z"/>
+          <path fill="#1E293B" d="m60 16 16 64-16-12z"/>
+          <path d="M60 16 44.5 80 20 88q-1 1 0 0 14-38 40-72 0-1 0 0" fill="url(#b-header)"/>
+          <path d="m60 16 15.5 64 24.5 8q1 1 0 0-14-38-40-72 0-1 0 0" fill="url(#c-header)"/>
+        </svg>
+        <span class="font-bold text-xl text-[#F8FAFC] tracking-tight">
+          anvik<span style="color: #94A3B8">.studio</span>
+        </span>
+      </a>
+
+      <!-- Right: Quick Links & Status Badge -->
+      <div class="flex items-center gap-4 sm:gap-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#090A0F] border border-[#1E293B] text-xs text-[#94A3B8]">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="font-medium text-slate-300">Building in public</span>
+        </div>
+
+        <a href="https://github.com/anvikstudio" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center text-sm text-[#94A3B8] hover:text-[#F8FAFC] transition-colors">
+          GitHub
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-5xl mx-auto px-6 py-12 sm:py-20 flex-grow flex flex-col justify-center gap-16 sm:gap-24">
+
+      <!-- 2. Hero Section -->
+      <section class="flex flex-col items-center text-center max-w-2xl mx-auto space-y-8">
+        <!-- Visual Element: Centered anvik.studio origami rocket logo -->
+        <div class="p-5 rounded-3xl bg-[#090A0F] border border-[#1E293B] shadow-2xl shadow-slate-950/80 hover:border-slate-700 transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="80" height="80" fill="none">
+            <rect width="120" height="120" rx="30" fill="#090A0F"/>
+            <defs>
+              <linearGradient id="b-hero" x1="60" y1="16" x2="22" y2="88" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="100%" stop-color="#94A3B8"/>
+              </linearGradient>
+              <linearGradient id="c-hero" x1="60" y1="16" x2="98" y2="88" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#E2E8F0"/>
+                <stop offset="100%" stop-color="#475569"/>
+              </linearGradient>
+            </defs>
+            <path fill="#334155" d="M60 16 44 80l16-12z"/>
+            <path fill="#1E293B" d="m60 16 16 64-16-12z"/>
+            <path d="M60 16 44.5 80 20 88q-1 1 0 0 14-38 40-72 0-1 0 0" fill="url(#b-hero)"/>
+            <path d="m60 16 15.5 64 24.5 8q1 1 0 0-14-38-40-72 0-1 0 0" fill="url(#c-hero)"/>
+          </svg>
+        </div>
+
+        <div class="space-y-4">
+          <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#94A3B8] leading-tight">
+            An independent lab for digital experiments and software tools.
+          </h1>
+          <p class="text-base sm:text-lg text-[#94A3B8] max-w-xl mx-auto font-normal leading-relaxed">
+            Strictly dedicated to personal side projects, technical exploration, and building high-performance software. No client services, no AI fluff.
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Projects / Experiments Section (Minimal Grid) -->
+      <section id="experiments" class="space-y-6">
+        <div class="flex items-center justify-between border-b border-[#1E293B]/60 pb-3">
+          <h2 class="text-xs uppercase tracking-widest font-semibold text-[#94A3B8]">
+            Experiments & Projects
+          </h2>
+          <span class="text-xs text-slate-500 font-mono">01 / Active</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Fluxwall Card -->
+          <a href="https://fluxwall.anvik.studio" target="_blank" rel="noopener noreferrer"
+             class="group relative flex flex-col justify-between p-6 rounded-2xl bg-[#090A0F] border border-[#1E293B] hover:border-slate-600 transition-all duration-300 hover:shadow-xl hover:shadow-slate-950/50">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="font-bold text-lg text-[#F8FAFC] group-hover:text-white transition-colors">Fluxwall</span>
+                  <span class="px-2 py-0.5 text-[10px] uppercase font-mono font-medium rounded bg-slate-800/80 text-slate-300 border border-slate-700/60">Live</span>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#94A3B8] group-hover:text-[#F8FAFC] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
+              <p class="text-sm text-[#94A3B8] leading-relaxed">
+                An interactive, dynamic live wallpaper experiment exploring real-time canvas rendering, particle dynamics, and fluid visual synthesis.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#1E293B]/60 flex items-center justify-between text-xs text-slate-400 font-mono">
+              <span class="text-slate-400">fluxwall.anvik.studio</span>
+              <span class="text-slate-500 group-hover:text-slate-200 transition-colors">Launch &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Placeholder Card -->
+          <div class="flex flex-col justify-between p-6 rounded-2xl bg-[#090A0F]/50 border border-[#1E293B]/50 border-dashed text-slate-500">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-base text-slate-400">Future Experiment</span>
+                <span class="px-2 py-0.5 text-[10px] uppercase font-mono rounded bg-slate-900 text-slate-500 border border-slate-800">In Queue</span>
+              </div>
+              <p class="text-sm text-slate-500 leading-relaxed">
+                Exploring lightweight systems programming, WebGPU shaders, and high-throughput developer utilities.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#1E293B]/40 flex items-center justify-between text-xs font-mono text-slate-600">
+              <span>status: cooking</span>
+              <span>v0.0.1</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Connect / Social Media Section -->
+      <section id="connect" class="space-y-6">
+        <div class="border-b border-[#1E293B]/60 pb-3">
+          <h2 class="text-xs uppercase tracking-widest font-semibold text-[#94A3B8]">
+            Connect
+          </h2>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- GitHub Pill -->
+          <a href="https://github.com/anvikstudio" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#090A0F] border border-[#1E293B] text-sm text-slate-300 hover:text-white hover:border-slate-600 hover:bg-slate-900/60 transition-all duration-200">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span class="font-medium">GitHub</span>
+          </a>
+
+          <!-- X / Twitter Pill -->
+          <a href="https://x.com/anvikstudio" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#090A0F] border border-[#1E293B] text-sm text-slate-300 hover:text-white hover:border-slate-600 hover:bg-slate-900/60 transition-all duration-200">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <span class="font-medium">X / Twitter</span>
+          </a>
+
+          <!-- LinkedIn Pill -->
+          <a href="https://linkedin.com/company/anvikstudio" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#090A0F] border border-[#1E293B] text-sm text-slate-300 hover:text-white hover:border-slate-600 hover:bg-slate-900/60 transition-all duration-200">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.64a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/>
+            </svg>
+            <span class="font-medium">LinkedIn</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 5. Footer -->
+    <footer class="w-full max-w-5xl mx-auto px-6 py-8 border-t border-[#1E293B]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#94A3B8]">
+      <div>
+        &copy; 2026 anvik.studio &mdash; All rights reserved.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#experiments" class="hover:text-[#F8FAFC] transition-colors">Experiments</a>
+        <a href="#connect" class="hover:text-[#F8FAFC] transition-colors">Connect</a>
+        <a href="https://github.com/anvikstudio" target="_blank" rel="noopener noreferrer" class="hover:text-[#F8FAFC] transition-colors">Source</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
