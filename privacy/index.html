@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#07090F] text-[#F8FAFC] antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policies — anvik.studio</title>
+  <meta name="description" content="Privacy Policies for products and applications developed by Anvik Studio.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#07090F',
+            cardBg: '#090A0F',
+            borderSlate: '#1E293B',
+            primarySlate: '#F8FAFC',
+            mutedSlate: '#94A3B8',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#07090F] text-[#F8FAFC] font-sans min-h-screen flex flex-col justify-between tracking-tight selection:bg-slate-800 selection:text-white">
+
+  <!-- Ambient Background Glow -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[400px] bg-gradient-to-b from-slate-800/20 via-slate-900/10 to-transparent blur-3xl opacity-80"></div>
+  </div>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="w-full max-w-5xl mx-auto px-6 py-6 flex items-center justify-between border-b border-[#1E293B]/60">
+      <a href="https://anvik.studio" class="flex items-center gap-3 group focus:outline-none focus:ring-1 focus:ring-slate-400 rounded-lg transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="36" height="36" fill="none">
+          <rect width="120" height="120" rx="30" fill="#090A0F"/>
+          <defs>
+            <linearGradient id="b-header" x1="60" y1="16" x2="22" y2="88" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="100%" stop-color="#94A3B8"/>
+            </linearGradient>
+            <linearGradient id="c-header" x1="60" y1="16" x2="98" y2="88" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#E2E8F0"/>
+              <stop offset="100%" stop-color="#475569"/>
+            </linearGradient>
+          </defs>
+          <path fill="#334155" d="M60 16 44 80l16-12z"/>
+          <path fill="#1E293B" d="m60 16 16 64-16-12z"/>
+          <path d="M60 16 44.5 80 20 88q-1 1 0 0 14-38 40-72 0-1 0 0" fill="url(#b-header)"/>
+          <path d="m60 16 15.5 64 24.5 8q1 1 0 0-14-38-40-72 0-1 0 0" fill="url(#c-header)"/>
+        </svg>
+        <span class="font-bold text-lg text-[#F8FAFC] tracking-tight">
+          anvik<span style="color: #94A3B8">.studio</span>
+        </span>
+      </a>
+
+      <nav class="flex items-center gap-4 text-xs font-mono text-[#94A3B8]">
+        <a href="https://anvik.studio" class="hover:text-[#F8FAFC] transition-colors">Home</a>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="w-full max-w-4xl mx-auto px-6 py-12 sm:py-16 flex-grow space-y-8">
+      <div>
+        <h1 class="text-3xl font-extrabold text-white tracking-tight">Privacy Policies</h1>
+        <p class="text-sm text-slate-400 mt-2">
+          Transparency and privacy by design across all products and apps crafted by Anvik Studio.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Dainik Panchang Card -->
+        <a href="/privacy/dainikpanchang" class="block p-6 rounded-2xl bg-[#090A0F] border border-[#1E293B] hover:border-slate-700 transition-all duration-300 group">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-all">
+                <span class="font-bold text-base">ॐ</span>
+              </div>
+              <div>
+                <h2 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
+                  Dainik Panchang (दैनिक पंचांग)
+                </h2>
+                <span class="text-xs font-mono text-slate-400">studio.anvik.dainikpanchang</span>
+              </div>
+            </div>
+            <span class="text-slate-400 group-hover:text-white transition-colors">&rarr;</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Privacy policy for the Dainik Panchang Android application. Details local-first architecture, device permissions, and future advertising provisions.
+          </p>
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-5xl mx-auto px-6 py-8 border-t border-[#1E293B]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#94A3B8]">
+      <div>&copy; 2026 anvik.studio &mdash; Built with autonomy and craft.</div>
+      <div class="flex items-center gap-6">
+        <a href="https://anvik.studio" class="hover:text-[#F8FAFC]">Home</a>
+        <a href="mailto:discover.ab@gmail.com" class="hover:text-[#F8FAFC]">Contact</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
