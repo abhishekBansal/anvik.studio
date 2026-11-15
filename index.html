@@ -1,448 +1,261 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-[#07090F] text-[#F8FAFC] antialiased">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>anvik.studio — Independent Software & Product Studio</title>
-  <meta name="description" content="Independent software studio building high-performance developer utilities, thoughtful digital wellness tools, and interactive digital experiences.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>anvik.studio — Small software, made with care</title>
+  <meta name="description" content="anvik.studio is an independent product studio. We make DevTools, TinyPause, FluxWall and Dainik Panchang: focused, private apps with no ads and no tracking.">
+  <meta name="theme-color" content="#07090F">
+  <link rel="canonical" href="https://anvik.studio/">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
 
-  <!-- Google Fonts: Plus Jakarta Sans -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="anvik.studio">
+  <meta property="og:url" content="https://anvik.studio/">
+  <meta property="og:title" content="anvik.studio — Small software, made with care">
+  <meta property="og:description" content="Focused, private apps for developers, focus, your phone screen and everyday rituals. No ads, no tracking.">
+  <meta property="og:image" content="https://anvik.studio/assets/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@studioanvik">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://anvik.studio/#org",
+        "name": "anvik.studio",
+        "url": "https://anvik.studio/",
+        "logo": "https://anvik.studio/assets/images/logo.svg",
+        "email": "hello@anvik.studio",
+        "sameAs": [
+          "https://x.com/studioanvik",
+          "https://instagram.com/studioanvik",
+          "https://www.youtube.com/channel/UCIy9AJ73pgPz4VBsoAbcw6Q"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "anvik.studio products",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "DevTools", "url": "https://devtools.anvik.studio", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web, macOS, Linux, Windows", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "TinyPause", "url": "https://tinypause.anvik.studio", "applicationCategory": "BrowserApplication", "operatingSystem": "Chrome, Firefox", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "FluxWall", "url": "https://fluxwall.anvik.studio", "applicationCategory": "MultimediaApplication", "operatingSystem": "Android", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Dainik Panchang", "url": "https://panchang.anvik.studio", "applicationCategory": "LifestyleApplication", "operatingSystem": "Android", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          },
-          colors: {
-            obsidian: '#07090F',
-            cardBg: '#090A0F',
-            borderSlate: '#1E293B',
-            primarySlate: '#F8FAFC',
-            mutedSlate: '#94A3B8',
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <!-- Mark JS as available before first paint so reveal animations never flash. -->
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="assets/js/site.js" defer></script>
 </head>
-<body class="bg-[#07090F] text-[#F8FAFC] font-sans min-h-screen flex flex-col justify-between tracking-tight selection:bg-slate-800 selection:text-white">
+<body>
+  <a class="skip-link" href="#products">Skip to products</a>
+  <canvas class="field" data-field aria-hidden="true"></canvas>
+  <div class="glow glow--one" aria-hidden="true"></div>
+  <div class="glow glow--two" aria-hidden="true"></div>
 
-  <!-- Ambient Background Glow -->
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[400px] bg-gradient-to-b from-slate-800/20 via-slate-900/10 to-transparent blur-3xl opacity-80"></div>
-    <div class="absolute top-1/2 -right-40 w-[400px] h-[400px] bg-slate-800/10 blur-3xl rounded-full pointer-events-none"></div>
-    <div class="absolute bottom-10 -left-40 w-[400px] h-[400px] bg-slate-800/10 blur-3xl rounded-full pointer-events-none"></div>
-  </div>
+  <header class="header" data-header>
+    <a class="brand" href="#top" aria-label="anvik.studio home">
+      <img src="assets/images/logo.svg" alt="" width="36" height="36">
+      <span>anvik<span class="muted">.studio</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#products">Products</a>
+      <a href="#principles">Principles</a>
+      <a href="#connect">Connect</a>
+      <a class="nav-cta" href="mailto:hello@anvik.studio">Say hello</a>
+    </nav>
+  </header>
 
-  <div class="relative z-10 flex flex-col min-h-screen">
-
-    <!-- 1. Header / Navigation -->
-    <header class="w-full max-w-5xl mx-auto px-6 py-6 flex items-center justify-between border-b border-[#1E293B]/60">
-      <!-- Left: Logo Lockup -->
-      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-1 focus:ring-slate-400 rounded-lg transition-all">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="40" height="40" fill="none" class="transition-transform duration-300 group-hover:scale-105">
-          <rect width="120" height="120" rx="30" fill="#090A0F"/>
-          <defs>
-            <linearGradient id="b-header" x1="60" y1="16" x2="22" y2="88" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#FFFFFF"/>
-              <stop offset="100%" stop-color="#94A3B8"/>
-            </linearGradient>
-            <linearGradient id="c-header" x1="60" y1="16" x2="98" y2="88" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#E2E8F0"/>
-              <stop offset="100%" stop-color="#475569"/>
-            </linearGradient>
-          </defs>
-          <path fill="#334155" d="M60 16 44 80l16-12z"/>
-          <path fill="#1E293B" d="m60 16 16 64-16-12z"/>
-          <path d="M60 16 44.5 80 20 88q-1 1 0 0 14-38 40-72 0-1 0 0" fill="url(#b-header)"/>
-          <path d="m60 16 15.5 64 24.5 8q1 1 0 0-14-38-40-72 0-1 0 0" fill="url(#c-header)"/>
-        </svg>
-        <span class="font-bold text-xl text-[#F8FAFC] tracking-tight">
-          anvik<span style="color: #94A3B8">.studio</span>
-        </span>
-      </a>
-
-      <!-- Right: Navigation Links -->
-      <nav class="flex items-center gap-6 sm:gap-8 text-sm text-[#94A3B8]">
-        <a href="#products" class="hover:text-[#F8FAFC] transition-colors">Products</a>
-        <a href="#principles" class="hover:text-[#F8FAFC] transition-colors">Principles</a>
-        <a href="#connect" class="hover:text-[#F8FAFC] transition-colors">Connect</a>
-      </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main class="w-full max-w-5xl mx-auto px-6 py-12 sm:py-20 flex-grow flex flex-col justify-center gap-20 sm:gap-28">
-
-      <!-- 2. Hero Section -->
-      <section class="flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
-        <!-- Visual Element: Centered anvik.studio origami rocket logo -->
-        <div class="p-5 rounded-3xl bg-[#090A0F] border border-[#1E293B] shadow-2xl shadow-slate-950/80 hover:border-slate-700 transition-all duration-300">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="80" height="80" fill="none">
-            <rect width="120" height="120" rx="30" fill="#090A0F"/>
-            <defs>
-              <linearGradient id="b-hero" x1="60" y1="16" x2="22" y2="88" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FFFFFF"/>
-                <stop offset="100%" stop-color="#94A3B8"/>
-              </linearGradient>
-              <linearGradient id="c-hero" x1="60" y1="16" x2="98" y2="88" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#E2E8F0"/>
-                <stop offset="100%" stop-color="#475569"/>
-              </linearGradient>
-            </defs>
-            <path fill="#334155" d="M60 16 44 80l16-12z"/>
-            <path fill="#1E293B" d="m60 16 16 64-16-12z"/>
-            <path d="M60 16 44.5 80 20 88q-1 1 0 0 14-38 40-72 0-1 0 0" fill="url(#b-hero)"/>
-            <path d="m60 16 15.5 64 24.5 8q1 1 0 0-14-38-40-72 0-1 0 0" fill="url(#c-hero)"/>
-          </svg>
-        </div>
-
-        <!-- Studio Status Pill -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#090A0F] border border-[#1E293B] text-xs text-slate-300 font-medium">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Independent Software & Product Studio</span>
-        </div>
-
-        <!-- Headline & Value Proposition -->
-        <div class="space-y-5">
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 leading-[1.12]">
-            Software built with purpose, speed, and precision.
-          </h1>
-          <p class="text-base sm:text-lg text-[#94A3B8] max-w-2xl mx-auto font-normal leading-relaxed">
-            We design and engineer focused developer utilities, thoughtful digital wellness tools, and real-time graphics experiences. Fast, private, and zero fluff.
-          </p>
-        </div>
-
-        <!-- Hero Actions -->
-        <div class="flex items-center gap-4 pt-2">
-          <a href="#products" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 text-slate-950 font-semibold text-sm hover:bg-white hover:shadow-lg hover:shadow-slate-100/10 transition-all duration-200">
-            <span>Explore Products</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </a>
-          <a href="#connect" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#090A0F] border border-[#1E293B] text-slate-300 font-medium text-sm hover:text-white hover:border-slate-600 transition-all duration-200">
-            <span>Connect</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- 3. Studio Principles / Value Pillars -->
-      <section id="principles" class="space-y-6">
-        <div class="border-b border-[#1E293B]/60 pb-3">
-          <h2 class="text-xs uppercase tracking-widest font-semibold text-[#94A3B8]">
-            Core Philosophy
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Pillar 1 -->
-          <div class="p-6 rounded-2xl bg-[#090A0F] border border-[#1E293B] space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-              </svg>
-            </div>
-            <h3 class="font-bold text-base text-[#F8FAFC]">Privacy by Architecture</h3>
-            <p class="text-sm text-[#94A3B8] leading-relaxed">
-              Local-first computation. Your data stays in your browser and on your machine—no telemetry on input data, no mandatory accounts.
-            </p>
-          </div>
-
-          <!-- Pillar 2 -->
-          <div class="p-6 rounded-2xl bg-[#090A0F] border border-[#1E293B] space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
-            <h3 class="font-bold text-base text-[#F8FAFC]">Performance by Default</h3>
-            <p class="text-sm text-[#94A3B8] leading-relaxed">
-              Sub-second response times, zero unnecessary dependencies, and instant startup whether in the browser or on the command line.
-            </p>
-          </div>
-
-          <!-- Pillar 3 -->
-          <div class="p-6 rounded-2xl bg-[#090A0F] border border-[#1E293B] space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-            </div>
-            <h3 class="font-bold text-base text-[#F8FAFC]">Crafted with Focus</h3>
-            <p class="text-sm text-[#94A3B8] leading-relaxed">
-              Every tool tackles a specific friction point with elegance. No feature creep, no lock-in, and no recurring subscription traps.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Featured Products Section -->
-      <section id="products" class="space-y-6">
-        <div class="flex items-center justify-between border-b border-[#1E293B]/60 pb-3">
-          <h2 class="text-xs uppercase tracking-widest font-semibold text-[#94A3B8]">
-            Featured Products
-          </h2>
-          <span class="text-xs text-slate-400 font-mono">04 Released</span>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6">
-          <!-- DevTools Card -->
-          <a href="https://devtools.anvik.studio" target="_blank" rel="noopener noreferrer"
-             class="group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-[#090A0F] border border-[#1E293B] hover:border-slate-500 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-950/70">
-            <div class="space-y-5">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-105 group-hover:border-blue-500/40 transition-all">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-2.5">
-                      <span class="font-bold text-xl text-[#F8FAFC] group-hover:text-white transition-colors">DevTools</span>
-                      <span class="px-2 py-0.5 text-[10px] uppercase font-mono font-medium rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/60 flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live
-                      </span>
-                    </div>
-                    <span class="text-xs text-slate-400 font-mono">Developer Utilities &bull; Web &amp; CLI</span>
-                  </div>
-                </div>
-                <div class="w-8 h-8 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-center text-[#94A3B8] group-hover:text-white group-hover:border-slate-600 transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </div>
-              </div>
-
-              <p class="text-sm sm:text-base text-[#94A3B8] leading-relaxed max-w-2xl">
-                A high-speed, privacy-first utility suite for daily engineering workflow. Format and validate JSON/XML, encode/decode Base64 and Hex, inspect timestamps, and analyze strings—available as a web app and terminal CLI with zero server tracking.
-              </p>
-
-              <!-- Tech Pills -->
-              <div class="flex flex-wrap items-center gap-2 pt-1">
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Web &amp; CLI</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">TypeScript</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Local-First</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Zero Telemetry</span>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-4 border-t border-[#1E293B]/60 flex items-center justify-between text-xs text-slate-400 font-mono">
-              <span class="text-slate-300 font-medium">devtools.anvik.studio</span>
-              <span class="text-slate-400 group-hover:text-white transition-colors flex items-center gap-1">Launch App &rarr;</span>
-            </div>
-          </a>
-
-          <!-- TinyPause Card -->
-          <a href="https://tinypause.anvik.studio" target="_blank" rel="noopener noreferrer"
-             class="group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-[#090A0F] border border-[#1E293B] hover:border-slate-500 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-950/70">
-            <div class="space-y-5">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl overflow-hidden shadow-md flex items-center justify-center group-hover:scale-105 transition-all">
-                    <img src="assets/images/tinypause-logo.png" alt="TinyPause Logo" class="w-full h-full object-cover">
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-2.5">
-                      <span class="font-bold text-xl text-[#F8FAFC] group-hover:text-white transition-colors">TinyPause</span>
-                      <span class="px-2 py-0.5 text-[10px] uppercase font-mono font-medium rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/60 flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live
-                      </span>
-                    </div>
-                    <span class="text-xs text-slate-400 font-mono">Digital Wellness &bull; Chrome &amp; Firefox</span>
-                  </div>
-                </div>
-                <div class="w-8 h-8 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-center text-[#94A3B8] group-hover:text-white group-hover:border-slate-600 transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </div>
-              </div>
-
-              <p class="text-sm sm:text-base text-[#94A3B8] leading-relaxed max-w-2xl">
-                A mindful browser extension designed to break compulsive digital habits. Intercepts visits to distracting platforms with a deliberate pause, requiring you to record an intention before proceeding. Features local-only foreground duration tracking.
-              </p>
-
-              <!-- Tech Pills -->
-              <div class="flex flex-wrap items-center gap-2 pt-1">
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Manifest V3</span>
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono text-slate-300 bg-slate-900/80 rounded-md border border-slate-800">
-                  <img src="assets/images/chrome.svg" class="w-3.5 h-3.5" alt="Chrome">
-                  <img src="assets/images/firefox.svg" class="w-3.5 h-3.5" alt="Firefox">
-                  Chrome &amp; Firefox
-                </span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Local Storage</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Zero Telemetry</span>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-4 border-t border-[#1E293B]/60 flex items-center justify-between text-xs text-slate-400 font-mono">
-              <span class="text-slate-300 font-medium">tinypause.anvik.studio</span>
-              <span class="text-slate-400 group-hover:text-white transition-colors flex items-center gap-1">Visit Website &rarr;</span>
-            </div>
-          </a>
-
-          <!-- Fluxwall Card -->
-          <a href="https://fluxwall.anvik.studio" target="_blank" rel="noopener noreferrer"
-             class="group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-[#090A0F] border border-[#1E293B] hover:border-slate-500 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-950/70">
-            <div class="space-y-5">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 group-hover:scale-105 group-hover:border-violet-500/40 transition-all">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-2.5">
-                      <span class="font-bold text-xl text-[#F8FAFC] group-hover:text-white transition-colors">Fluxwall</span>
-                      <span class="px-2 py-0.5 text-[10px] uppercase font-mono font-medium rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/60 flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live
-                      </span>
-                    </div>
-                    <span class="text-xs text-slate-400 font-mono">Generative Visuals &bull; Canvas Engine</span>
-                  </div>
-                </div>
-                <div class="w-8 h-8 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-center text-[#94A3B8] group-hover:text-white group-hover:border-slate-600 transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </div>
-              </div>
-
-              <p class="text-sm sm:text-base text-[#94A3B8] leading-relaxed max-w-2xl">
-                A hardware-accelerated dynamic live wallpaper and generative graphics visualizer running in the browser. Powered by real-time particle dynamics, fluid field synthesis, and customizable rendering parameters.
-              </p>
-
-              <!-- Tech Pills -->
-              <div class="flex flex-wrap items-center gap-2 pt-1">
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">HTML5 Canvas</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Particle Dynamics</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">60 FPS Render</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Audio Reactive</span>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-4 border-t border-[#1E293B]/60 flex items-center justify-between text-xs text-slate-400 font-mono">
-              <span class="text-slate-300 font-medium">fluxwall.anvik.studio</span>
-              <span class="text-slate-400 group-hover:text-white transition-colors flex items-center gap-1">Launch App &rarr;</span>
-            </div>
-          </a>
-
-          <!-- Dainik Panchang Card -->
-          <a href="https://panchang.anvik.studio" target="_blank" rel="noopener noreferrer"
-             class="group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-[#090A0F] border border-[#1E293B] hover:border-slate-500 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-950/70">
-            <div class="space-y-5">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl overflow-hidden shadow-md flex items-center justify-center group-hover:scale-105 transition-all bg-[#0B0F17] border border-orange-500/30">
-                    <img src="assets/images/panchang-logo.png" alt="Dainik Panchang Logo" class="w-full h-full object-contain">
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-2.5">
-                      <span class="font-bold text-xl text-[#F8FAFC] group-hover:text-white transition-colors">Dainik Panchang</span>
-                      <span class="px-2 py-0.5 text-[10px] uppercase font-mono font-medium rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/60 flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live
-                      </span>
-                    </div>
-                    <span class="text-xs text-slate-400 font-mono">Senior-Centric Hindu Calendar &bull; Android App</span>
-                  </div>
-                </div>
-                <div class="w-8 h-8 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-center text-[#94A3B8] group-hover:text-white group-hover:border-slate-600 transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </div>
-              </div>
-
-              <p class="text-sm sm:text-base text-[#94A3B8] leading-relaxed max-w-2xl">
-                An offline-first, senior-friendly Hindu Vrat and Tithi calendar app engineered for clarity and peace of mind. Features accurate astronomical calculations, Udaya Tithi, Choghadiya, Shubh Muhurat, high-contrast typography, and 1-tap voice narration across 11 Indian regional languages with zero advertisements or tracking.
-              </p>
-
-              <!-- Tech Pills -->
-              <div class="flex flex-wrap items-center gap-2 pt-1">
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Android &amp; Kotlin</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Jetpack Compose</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">100% Offline (Room DB)</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">11 Languages</span>
-                <span class="px-2.5 py-1 text-xs font-mono text-slate-400 bg-slate-900/80 rounded-md border border-slate-800">Zero Ads &amp; Telemetry</span>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-4 border-t border-[#1E293B]/60 flex items-center justify-between text-xs text-slate-400 font-mono">
-              <span class="text-slate-300 font-medium">panchang.anvik.studio</span>
-              <span class="text-slate-400 group-hover:text-white transition-colors flex items-center gap-1">Visit Website &rarr;</span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- 5. Connect / Community Section -->
-      <section id="connect" class="space-y-6">
-        <div class="border-b border-[#1E293B]/60 pb-3">
-          <h2 class="text-xs uppercase tracking-widest font-semibold text-[#94A3B8]">
-            Connect
-          </h2>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-3">
-          <!-- YouTube Pill -->
-          <a href="https://www.youtube.com/channel/UCIy9AJ73pgPz4VBsoAbcw6Q" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#090A0F] border border-[#1E293B] text-sm text-slate-300 hover:text-white hover:border-slate-600 hover:bg-slate-900/60 transition-all duration-200">
-            <svg class="w-4 h-4 fill-current text-red-500" viewBox="0 0 24 24">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-            <span class="font-medium">YouTube</span>
-          </a>
-
-          <!-- X / Twitter Pill -->
-          <a href="https://x.com/studioanvik" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#090A0F] border border-[#1E293B] text-sm text-slate-300 hover:text-white hover:border-slate-600 hover:bg-slate-900/60 transition-all duration-200">
-            <svg class="w-4 h-4 fill-current text-slate-200" viewBox="0 0 24 24">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            <span class="font-medium">X / Twitter</span>
-          </a>
-
-          <!-- Instagram Pill -->
-          <a href="https://instagram.com/studioanvik" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#090A0F] border border-[#1E293B] text-sm text-slate-300 hover:text-white hover:border-slate-600 hover:bg-slate-900/60 transition-all duration-200">
-            <svg class="w-4 h-4 fill-current text-pink-400" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            <span class="font-medium">Instagram</span>
-          </a>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- 6. Footer -->
-    <footer class="w-full max-w-5xl mx-auto px-6 py-8 border-t border-[#1E293B]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#94A3B8]">
-      <div>
-        &copy; 2026 anvik.studio &mdash; Built with autonomy and craft.
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-logo" aria-hidden="true">
+        <img src="assets/images/logo.svg" alt="" width="96" height="96">
+        <span class="hero-orbit"></span>
       </div>
-      <div class="flex items-center gap-6">
-        <a href="#products" class="hover:text-[#F8FAFC] transition-colors">Products</a>
-        <a href="#principles" class="hover:text-[#F8FAFC] transition-colors">Principles</a>
-        <a href="#connect" class="hover:text-[#F8FAFC] transition-colors">Connect</a>
-        <a href="/privacy/dainikpanchang" class="hover:text-[#F8FAFC] transition-colors">Privacy</a>
+      <p class="pill"><span class="dot"></span> Independent product studio</p>
+      <h1 class="hero-title">
+        Small software,<br>
+        made with <span class="rotator" data-rotator aria-live="polite"><em>care.</em></span>
+      </h1>
+      <p class="hero-lede">We make focused apps for developers, for your attention, for your phone screen and for everyday rituals. They're fast and private, with no ads and no accounts.</p>
+      <div class="hero-actions">
+        <a class="button button--primary" href="#products">See what we make <span aria-hidden="true">↓</span></a>
+        <a class="button button--ghost" href="mailto:hello@anvik.studio">hello@anvik.studio</a>
       </div>
-    </footer>
+      <dl class="stats" data-reveal>
+        <div><dt>Products live</dt><dd data-count="4">4</dd></div>
+        <div><dt>Platforms</dt><dd data-count="3">3</dd></div>
+        <div><dt>Live wallpapers</dt><dd data-count="29">29</dd></div>
+        <div><dt>Ads &amp; trackers</dt><dd>0</dd></div>
+      </dl>
+    </section>
 
-  </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Private by default</span><b>✦</b><span>No ads</span><b>✦</b><span>No accounts</span><b>✦</b><span>Fast to open</span><b>✦</b><span>Made with care</span><b>✦</b>
+        <span>Private by default</span><b>✦</b><span>No ads</span><b>✦</b><span>No accounts</span><b>✦</b><span>Fast to open</span><b>✦</b><span>Made with care</span><b>✦</b>
+      </div>
+    </div>
 
+    <!-- Products -->
+    <section class="section" id="products" aria-labelledby="products-title">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Products</p>
+        <h2 id="products-title">Four apps, <em>each doing one thing well.</em></h2>
+      </div>
+
+      <!-- DevTools -->
+      <article class="product" style="--accent: #38BDF8" data-reveal data-spotlight>
+        <div class="product-copy">
+          <div class="product-id">
+            <span class="product-icon product-icon--svg" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/></svg>
+            </span>
+            <div>
+              <h3>DevTools</h3>
+              <p class="product-meta">Developer utilities · Web &amp; CLI</p>
+            </div>
+            <span class="live"><span class="dot"></span> Live</span>
+          </div>
+          <p class="product-text">The small jobs you do every day, all in one fast place. Format and validate JSON and XML, convert Base64 and Hex, read timestamps and inspect strings, in the browser or the terminal. Everything runs on your machine.</p>
+          <ul class="tags"><li>Web &amp; CLI</li><li>TypeScript</li><li>Runs locally</li><li>No telemetry</li></ul>
+          <a class="product-link" href="https://devtools.anvik.studio" target="_blank" rel="noopener">Open DevTools <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="product-visual">
+          <div class="terminal" role="img" aria-label="A terminal formatting JSON with the DevTools CLI">
+            <div class="terminal-bar"><i></i><i></i><i></i><span>~/projects</span></div>
+            <pre class="terminal-body" data-terminal></pre>
+          </div>
+        </div>
+      </article>
+
+      <!-- TinyPause -->
+      <article class="product product--flip" style="--accent: #34D399" data-reveal data-spotlight>
+        <div class="product-copy">
+          <div class="product-id">
+            <img class="product-icon" src="assets/images/tinypause-logo.png" alt="" width="48" height="48">
+            <div>
+              <h3>TinyPause</h3>
+              <p class="product-meta">Digital wellness · Chrome &amp; Firefox</p>
+            </div>
+            <span class="live"><span class="dot"></span> Live</span>
+          </div>
+          <p class="product-text">A gentle pause before the sites that pull you in. Before a distracting page opens, TinyPause asks what brought you there and lets you name your intention. Time on each site is counted only on your device.</p>
+          <ul class="tags"><li><img src="assets/images/chrome.svg" alt="" width="14" height="14"><img src="assets/images/firefox.svg" alt="" width="14" height="14"> Chrome &amp; Firefox</li><li>Manifest V3</li><li>Stays on your device</li></ul>
+          <a class="product-link" href="https://tinypause.anvik.studio" target="_blank" rel="noopener">Visit TinyPause <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="product-visual">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span>x.com</span></div>
+            <div class="browser-body">
+              <img src="assets/images/products/tinypause-pause.webp" alt="TinyPause asking 'What brings you here?' before opening x.com" loading="lazy" width="960" height="600">
+              <span class="breath" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- FluxWall -->
+      <article class="product" style="--accent: #C6F432" data-reveal data-spotlight>
+        <div class="product-copy">
+          <div class="product-id">
+            <img class="product-icon" src="assets/images/fluxwall-logo.png" alt="" width="48" height="48">
+            <div>
+              <h3>FluxWall</h3>
+              <p class="product-meta">Live wallpapers · Android</p>
+            </div>
+            <span class="live"><span class="dot"></span> Live</span>
+          </div>
+          <p class="product-text">29 live wallpapers that are drawn on your phone as you watch, not looped videos. Fly through a nebula, stir water with your finger or tilt a galaxy. Then tune color, speed and motion until it feels like yours.</p>
+          <ul class="tags"><li>Android</li><li>Touch &amp; tilt</li><li>Battery friendly</li><li>No ads</li></ul>
+          <a class="product-link" href="https://fluxwall.anvik.studio" target="_blank" rel="noopener">Explore FluxWall <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="product-visual product-visual--wall" aria-label="FluxWall wallpaper thumbnails" role="img">
+          <div class="wall-col" data-wall="tunnel event_horizon fluid_dynamics ripple nebula_voyage aurora_field"></div>
+          <div class="wall-col wall-col--down" data-wall="fractals jellyfish_drift synthwave_sun fireplace grand_spiral_galaxy crystal_cluster"></div>
+          <div class="wall-col wall-col--slow" data-wall="ripple aurora_field grand_spiral_galaxy tunnel fireplace event_horizon"></div>
+        </div>
+      </article>
+
+      <!-- Dainik Panchang -->
+      <article class="product product--flip" style="--accent: #F97316" data-reveal data-spotlight>
+        <div class="product-copy">
+          <div class="product-id">
+            <img class="product-icon" src="assets/images/panchang-logo.png" alt="" width="48" height="48">
+            <div>
+              <h3>Dainik Panchang</h3>
+              <p class="product-meta">Hindu calendar · Android</p>
+            </div>
+            <span class="live"><span class="dot"></span> Live</span>
+          </div>
+          <p class="product-text">A Hindu calendar made for our parents. Large clear type shows today's Tithi, upcoming Vrats, Choghadiya and Shubh Muhurat. One tap reads the day aloud in 11 Indian languages. It works offline, with no ads.</p>
+          <ul class="tags"><li>Works offline</li><li>11 languages</li><li>Voice narration</li><li>No ads</li></ul>
+          <a class="product-link" href="https://panchang.anvik.studio" target="_blank" rel="noopener">Visit Dainik Panchang <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="product-visual product-visual--phones">
+          <img class="phone phone--back" src="assets/images/products/panchang-calendar.webp" alt="" loading="lazy" width="360" height="800">
+          <img class="phone phone--front" src="assets/images/products/panchang-today.webp" alt="Dainik Panchang showing today's Tithi, the next Vrat and sunrise and sunset times" loading="lazy" width="360" height="800">
+        </div>
+      </article>
+    </section>
+
+    <!-- Principles -->
+    <section class="section" id="principles" aria-labelledby="principles-title">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Principles</p>
+        <h2 id="principles-title">What every app <em>promises you.</em></h2>
+      </div>
+      <div class="principles">
+        <article class="principle" data-reveal data-spotlight>
+          <span class="principle-num">01</span>
+          <h3>Private by design</h3>
+          <p>Your data stays on your device. We don't add telemetry or accounts, and nothing you type is sent anywhere.</p>
+        </article>
+        <article class="principle" data-reveal data-spotlight>
+          <span class="principle-num">02</span>
+          <h3>Fast by default</h3>
+          <p>Apps open instantly and stay light. We avoid dependencies we don't need, so each one stays quick on modest hardware.</p>
+        </article>
+        <article class="principle" data-reveal data-spotlight>
+          <span class="principle-num">03</span>
+          <h3>Focused on purpose</h3>
+          <p>Each app solves one problem well. We avoid feature creep, lock-in and subscription traps.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Connect -->
+    <section class="section connect" id="connect" aria-labelledby="connect-title" data-reveal>
+      <p class="eyebrow">Connect</p>
+      <h2 id="connect-title">Have an idea, a bug<br>or <em>a kind word?</em></h2>
+      <a class="mail" href="mailto:hello@anvik.studio" data-magnetic>hello@anvik.studio <span aria-hidden="true">↗</span></a>
+      <ul class="socials">
+        <li><a href="https://www.youtube.com/channel/UCIy9AJ73pgPz4VBsoAbcw6Q" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube</a></li>
+        <li><a href="https://x.com/studioanvik" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X / Twitter</a></li>
+        <li><a href="https://instagram.com/studioanvik" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span data-year>2026</span> anvik.studio. Built with care.</span>
+    <nav aria-label="Footer">
+      <a href="#products">Products</a>
+      <a href="#principles">Principles</a>
+      <a href="#connect">Connect</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </footer>
 </body>
 </html>
